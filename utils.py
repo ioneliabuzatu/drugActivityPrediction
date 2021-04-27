@@ -23,7 +23,7 @@ import config
 
 def model_RF():
     return RandomForestClassifier(n_estimators=config.n_estimators, random_state=1234, max_features=config.max_features,
-                                  n_jobs=-1, class_weight=config.class_weight, max_samples=config.max_samples,
+                                  n_jobs=config.n_jobs, class_weight=config.class_weight, max_samples=config.max_samples,
                                   min_impurity_decrease=config.min_impurity_decrease)
 
 
@@ -33,7 +33,7 @@ def model_SGD():
         eta0=config.eta0, alpha=config.alpha,
         tol=config.tol, shuffle=True, random_state=1234, class_weight=config.class_weight,
         fit_intercept=config.fit_intercept,
-        n_jobs=-1)
+        n_jobs=config.n_jobs)
 
 
 def model_MLP():
@@ -54,7 +54,7 @@ def model_SVC():
         shrinking=config.shrinking,
         probability=config.probability,
         tol=config.tol, cache_size=config.cache_size, class_weight=config.class_weight, verbose=config.verbose,
-        max_iter=-1,
+        max_iter=config.max_iter,
         decision_function_shape=config.decision_function_shape, break_ties=config.break_ties, random_state=1234)
 
 
@@ -94,7 +94,7 @@ def model_perceptron():
     return Perceptron(penalty=config.penalty, alpha=config.alpha, fit_intercept=config.fit_intercept,
                       max_iter=config.max_iter,
                       tol=config.tol, shuffle=config.shuffle,
-                      verbose=0, eta0=config.eta0, n_jobs=-1, random_state=1234,
+                      verbose=0, eta0=config.eta0, n_jobs=config.n_jobs, random_state=1234,
                       early_stopping=config.early_stopping,
                       validation_fraction=config.validation_fraction,
                       n_iter_no_change=config.n_iter_no_change,
@@ -110,7 +110,7 @@ def model_LR():
                               solver=config.solver, max_iter=config.max_iter,
                               multi_class=config.multi_class,
                               verbose=0, warm_start=config.warm_start,
-                              n_jobs=-1, l1_ratio=config.l1_ratio)
+                              n_jobs=config.n_jobs, l1_ratio=config.l1_ratio)
 
 
 def model_gaussian():

@@ -1,18 +1,11 @@
-import warnings
-
 import numpy as np
 import pandas as pd
-import wandb
 from numpy import inf
-from sklearn.exceptions import ConvergenceWarning
 from sklearn.model_selection import train_test_split
 
 import config
+import wandb
 from utils import models
-
-warnings.filterwarnings("ignore", category=DeprecationWarning)
-warnings.filterwarnings("ignore", category=RuntimeWarning)
-warnings.filterwarnings("ignore", category=ConvergenceWarning)
 
 wandb.run = config.tensorboard.run
 

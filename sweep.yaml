@@ -1,0 +1,135 @@
+program: sweep_sklearn.py
+method: random
+metric:
+  goal: maximize
+  name: Tasks_accuracy
+parameters:
+  ^model_name:
+    distribution: categorical
+    values: [ "model_RF", "model_SGD", "model_MLP", "model_oneVsRest", "model_SVC", "model_DT", "model_extratree", "model_KN",
+              "model_perceptron", "model_LR", "model_gaussian", "model_GB", "model_bernoulli", "model_naivegaussian" ]
+  ^criterion:
+    distribution: categorical
+    values: [ "gini", "entropy", 'friedman_mse', 'mse', 'mae' ]
+  ^n_estimators:
+    distribution: categorical
+    values: [ 400,1000,3000 ]
+  ^max_features:
+    distribution: categorical
+    values: [ "auto", "sqrt", "log2" ]
+  ^bootstrap:
+    distribution: categorical
+    values:
+      - True
+      - False
+  ^class_weight:
+    distribution: categorical
+    values: [ "balanced", "balanced_subsample" ]
+  ^min_impurity_decrease:
+    distribution: categorical
+    values: [ 0.05,0.1, 0.2 ]
+  ^loss:
+    distribution: categorical
+    values: [ 'hinge', 'log', 'modified_huber',
+              'squared_hinge', 'perceptron',  'squared_loss',
+              'huber', 'epsilon_insensitive',  'squared_epsilon_insensitive',
+              'deviance', 'exponential' ]
+  ^penalty:
+    distribution: categorical
+    values: [ 'l2', 'l1', 'elasticnet' ]
+  ^alpha:
+    distribution: uniform
+    min: 0.0001
+    max: 0.25
+  ^fit_intercept:
+    distribution: categorical
+    values:
+      - True
+      - False
+  ^max_iter:
+    distribution: q_uniform
+    min: 1000
+    max: 6000
+  ^learning_rate:
+    distribution: categorical
+    values: [ 'constant', 'optimal', 'invscaling', 'adaptive' ]
+  ^eta0:
+    distribution: uniform
+    min: 0.0
+    max: 1
+  ^warm_start:
+    distribution: categorical
+    values:
+      - True
+      - False
+  ^hidden_layer_sizes:
+    distribution: q_uniform
+    min: 500
+    max: 6000
+  ^activation:
+    distribution: categorical
+    values: [ 'identity', 'logistic', 'tanh', 'relu' ]
+  ^solver:
+    distribution: categorical
+    values: [ 'lbfgs', 'sgd', 'adam', 'newton-cg', 'lbfgs', 'liblinear', 'sag', 'saga' ]
+  ^batch_size:
+    distribution: categorical
+    values: [ 64,128, 160 ]
+  ^momentum:
+    distribution: uniform
+    min: 0.93
+    max: 0.999
+  ^C:
+    distribution: uniform
+    min: 0.0
+    max: 1.0
+  ^kernel:
+    distribution: categorical
+    values: [ 'linear', 'poly', 'rbf', 'sigmoid', 'precomputed' ]
+  ^degree:
+    distribution: categorical
+    values: [ 3, 30,300 ]
+  ^gamma:
+    distribution: categorical
+    values: [ 'scale', 'auto' ]
+  ^coef0:
+    distribution: uniform
+    min: 0.0
+    max: 1.0
+  ^splitter:
+    distribution: categorical
+    values: [ "random", "best" ]
+  ^ccp_alpha:
+    distribution: uniform
+    min: 0.0
+    max: 1.0
+  ^weights:
+    distribution: categorical
+    values: [ 'uniform', 'distance' ]
+  ^algorithm:
+    distribution: categorical
+    values: [ 'auto', 'ball_tree', 'kd_tree', 'brute' ]
+  ^leaf_size:
+    distribution: categorical
+    values: [ 30,100,200 ,1000 ]
+  ^p:
+    distribution: uniform
+    min: 0.001
+    max: 0.3
+  ^max_iter_predict:
+    distribution: q_uniform
+    min: 1000
+    max: 8000
+  ^binarize:
+    distribution: uniform
+    min: 0.0
+    max: 1.0
+  ^fit_prior:
+    distribution: categorical
+    values:
+      - True
+      - False
+  ^var_smoothing:
+    distribution: uniform
+    min: 1e-9
+    max: 0.1

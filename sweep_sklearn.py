@@ -52,7 +52,7 @@ def model_fit_and_predict(model, x, y, idx, task, test):
     return prediction
 
 
-X_train, X_test, y_train, y_test = load_and_clean_train_csv("./data/data_train_descriptors.csv")
+X_train, X_test, y_train, y_test = load_and_clean_train_csv(config.filepath_data_train)
 
 for task in range(11):
     idx_task = (y_train[:, task] != 0)

@@ -3,8 +3,8 @@ import experiment_buddy
 seed = 123
 num_classes = 3
 model_name = "model_SGD"
-filepath_data_train = "../data/data_train_descriptors.csv"
-# filepath_data_train = "/home/mila/g/golemofl/data/data_train_descriptors.csv"
+# filepath_data_train = "../data/data_train_descriptors.csv"
+filepath_data_train = "/home/mila/g/golemofl/data/data_train_descriptors.csv"
 n_estimators = 200
 criterion = "entropy"
 max_features = "auto"

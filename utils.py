@@ -29,7 +29,7 @@ def model_RF():
 
 def model_SGD():
     return SGDClassifier(
-        loss=config.log, penalty=config.penalty, max_iter=config.max_iter, learning_rate=config.learning_rate,
+        loss=config.loss, penalty=config.penalty, max_iter=config.max_iter, learning_rate=config.learning_rate,
         eta0=config.eta0, alpha=config.alpha,
         tol=config.tol, shuffle=True, random_state=1234, class_weight=config.class_weight,
         fit_intercept=config.fit_intercept,

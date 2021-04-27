@@ -62,3 +62,4 @@ for task in range(11):
     accuracy = np.mean(y_test[:, task] == prediction)
 
     wandb.log({f"Tasks_accuracy": accuracy}, step=task)
+    print(f"{task}: {accuracy}")

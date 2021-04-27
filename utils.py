@@ -17,13 +17,15 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import ExtraTreeClassifier
+from sklearn.preprocessing import MinMaxScaler
 
 import config
 
 
 def model_RF():
     return RandomForestClassifier(n_estimators=config.n_estimators, random_state=1234, max_features=config.max_features,
-                                  n_jobs=config.n_jobs, class_weight=config.class_weight, max_samples=config.max_samples,
+                                  n_jobs=config.n_jobs, class_weight=config.class_weight,
+                                  max_samples=config.max_samples,
                                   min_impurity_decrease=config.min_impurity_decrease)
 
 
@@ -154,10 +156,17 @@ def smiles_custom_dataset(filepath, test_size=0.2):
 
     data = data.replace([inf, -inf, np.nan], 0)
 
+    data = data.drop(["smiles"], axis=1)
+    cols = data.columns
+    scaler = MinMaxScaler()
+    scaler.fit(data)
+    data = scaler.transform(data)
+    data = pd.DataFrame(data, columns=cols)
     x = data.drop(
-        ["smiles", 'task1', "task2", "task3", "task4", "task5", "task6", "task7", "task8", "task9", "task10", "task11"],
-        axis=1)
+        ['task1', "task2", "task3", "task4", "task5", "task6", "task7", "task8", "task9", "task10", "task11"], axis=1
+    )
     X = np.array(x)
+
     y = np.array(
         data[['task1', "task2", "task3", "task4", "task5", "task6", "task7", "task8", "task9", "task10", "task11"]])
 

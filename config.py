@@ -88,7 +88,7 @@ var_smoothing = 1e-09
 experiment_buddy.register(locals())
 tensorboard = experiment_buddy.deploy(
     "mila",
-    sweep_yaml="sweep.yaml",
+    sweep_yaml="sweep_debug.yaml",
     proc_num=10,
     wandb_kwargs={"entity": "ionelia"}
 )

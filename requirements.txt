@@ -1,5 +1,0 @@
-pandas
-numpy
-sklearn
-git+https://git@github.com/ministry-of-silly-code/experiment_buddy.git#egg=experiment_buddy
-torch

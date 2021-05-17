@@ -1,0 +1,9 @@
+program: sweep_sklearn.py
+method: random
+metric:
+  goal: maximize
+  name: Tasks_accuracy
+parameters:
+  ^model_name:
+    distribution: categorical
+    values: [ "model_RF", "model_SGD", "model_MLP", "model_oneVsRest", "model_SVC", "model_DT", "model_extratree", "model_KN", "model_perceptron", "model_LR", "model_gaussian", "model_GB", "model_bernoulli", "model_naivegaussian" ]
